@@ -18,6 +18,7 @@ public class Teste {
 		System.out.println("Pode ser executado: " + arquivo.canExecute());
 		System.out.println("Pode ser lido: " + arquivo.canRead());
 		System.out.println("Pode ser escrito: " + arquivo.canWrite());
+		System.out.println();
 		
 		try (
 				FileReader reader = new FileReader(arquivo);
@@ -35,8 +36,10 @@ public class Teste {
 	}
 
 	private static Object imprimirEstado(String linha) {
-
-		
+		String linhaSemAspas = linha.replace("\"", "");
+		String[] campos = linhaSemAspas.split(";");
+		if (!campos[0].equals("UFCOD"))
+			System.out.println("Sigla do Estado: " + campos[1] + " | Nome do Estado: " + campos[2]);
 		
 		return null;
 	}
